@@ -22,7 +22,7 @@ function monitor() {
     if(cpu_usage > 1) {
         console.table(`CPU USAGE VERY HIGH`)
         // Make an API REQUEST to the database
-        axios.default.post('http://localhost:8080', {
+        axios.default.post('http://15.206.170.227:8080/', {
             cpu_usage: cpu_usage,
             percentage_memory_available: percentage_memory_available,
             high: 'cpu'
@@ -33,7 +33,7 @@ function monitor() {
     if(percentage_memory_available > 1) {
         console.table(`MEMORY USAGE VERY HIGH`)
         // Make an API Request to the database
-        axios.default.post('http://localhost:8080', {
+        axios.default.post('http://15.206.170.227:8080/', {
             cpu_usage: cpu_usage,
             percentage_memory_available: percentage_memory_available,
             high: 'memory'
