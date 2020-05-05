@@ -17,5 +17,17 @@ let show_data = async (req, res) => {
     res.json({ error: false, success: true, response: data })
 }
 
+let get_instances = async (req, res) => {
+    let south = require('../middleware/south.json')
+    let southeast = require('../middleware/southeast.json')
+    let instances = south.instances.concat(southeast.instances)
+    setTimeout(() => {
+        shell.exec('rm -f ./middleware/south.json')
+        shell.exec('rm -f ./middleware/southeast.json')
+    }, 3000);
+    res.json({error: false, success: true, instances})
+}
+
 exports.get_data = get_data
 exports.show_data = show_data
+exports.get_instances = get_instances
